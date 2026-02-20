@@ -43,5 +43,8 @@ User called out that tests for Meta and TikTok were mocked and did not verify re
 3. Detailed methodology explanation in explanations_for_slides.md for Gamma.app slides
 4. Clear walkthrough of: Twitter keyword search, Google URL search for Facebook/TikTok, BrightData collection process
 
+## Prompt 8 — 2026-02-20
+Create a .env.dummy file with all three API key env vars but NOT the actual values. Update README with steps to copy, rename, and add API keys.
+
 ## Prompt 7 — 2026-02-20
 Find 5-10 specific TikTok VIDEO URLs (format: tiktok.com/@username/video/NUMBERS) related to India AI, artificial intelligence India, AI Impact Summit India, or Indian tech. These are needed for the BrightData TikTok Posts dataset (gd_lu702nij2f790tmv9h) which requires individual video URLs, not profile URLs.

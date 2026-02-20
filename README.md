@@ -73,13 +73,15 @@ cd dashboard && npm install
 
 ### Environment Variables
 
-Create a `.env` file in the project root:
-
-```
-TWITTERAPI_KEY=your_twitter_api_key
-BRIGHTDATA_API_KEY=your_brightdata_api_key
-OPENROUTER_API_KEY=your_openrouter_api_key
-```
+1. Copy the dummy env file:
+   ```bash
+   cp .env.dummy .env
+   ```
+2. Open `.env` and fill in your API keys:
+   - `TWITTERAPI_KEY` — from [twitterapi.io](https://twitterapi.io)
+   - `BRIGHTDATA_API_KEY` — from [BrightData](https://brightdata.com) (Account Settings > API tokens)
+   - `OPENROUTER_API_KEY` — from [OpenRouter](https://openrouter.ai/keys)
+3. Never commit `.env` (it's already in `.gitignore`)
 
 ## Sample URLs for Data Collection
 
