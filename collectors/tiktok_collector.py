@@ -1,8 +1,12 @@
 """
 TikTok data collector using BrightData Web Scraper API.
 
-Collects posts from public TikTok account URLs, normalizes them
-to the unified post schema.
+Collects individual TikTok video posts by URL via BrightData's TikTok Posts
+dataset. Requires specific video URLs (tiktok.com/@user/video/ID), NOT
+profile URLs. Video URLs are found via web search or manual browsing.
+
+The TikTok Posts dataset does NOT support num_of_posts or profile-level
+scraping — each input must be a direct video URL.
 """
 
 import logging
@@ -24,11 +28,11 @@ def normalize_tiktok_post(post):
     """
     Normalize a raw TikTok post from BrightData to the unified post schema.
 
-    BrightData TikTok posts may have varying field names. This function
-    maps common fields to our unified format.
+    BrightData TikTok Posts dataset returns fields like 'id', 'author',
+    'text', 'digg_count', etc. This function maps them to our unified format.
 
     Args:
-        post: Dict from BrightData TikTok dataset response.
+        post: Dict from BrightData TikTok Posts dataset response.
 
     Returns:
         Dict in unified post schema format.
@@ -54,23 +58,25 @@ def normalize_tiktok_post(post):
     }
 
 
-def collect_tiktok(urls):
+def collect_tiktok(video_urls):
     """
-    Collect TikTok posts from the given account URLs via BrightData.
+    Collect TikTok posts by individual video URL via BrightData.
 
-    Triggers a BrightData collection, polls until ready, downloads results,
-    and normalizes to the unified post schema.
+    Each URL must be a direct video link (tiktok.com/@user/video/ID).
+    The BrightData TikTok Posts dataset does NOT support profile URLs
+    or num_of_posts — it scrapes one video per input URL.
 
     Args:
-        urls: List of public TikTok account URL strings.
+        video_urls: List of TikTok video URL strings.
+            Format: https://www.tiktok.com/@username/video/1234567890
 
     Returns:
         List of normalized post dicts (up to MAX_POSTS).
     """
-    logger.info("Collecting TikTok posts from %d URLs...", len(urls))
+    logger.info("Collecting %d TikTok video(s)...", len(video_urls))
 
-    # Build inputs for BrightData (TikTok profiles dataset doesn't accept num_of_posts)
-    inputs = [{"url": url} for url in urls]
+    # Each URL is a separate input — no num_of_posts field allowed
+    inputs = [{"url": url} for url in video_urls[:MAX_POSTS]]
 
     # Trigger collection
     snapshot_id = trigger_collection(BRIGHTDATA_TIKTOK_DATASET_ID, inputs)
@@ -88,9 +94,12 @@ def collect_tiktok(urls):
     raw_path = os.path.join(RAW_DIR, 'tiktok', f'snapshot_{snapshot_id}.json')
     save_json_atomic(raw_data, raw_path)
 
-    # Normalize
+    # Normalize — filter out non-dict items
     posts = []
     for item in raw_data:
+        if not isinstance(item, dict):
+            logger.warning("Skipping non-dict item in TikTok response: %s", type(item))
+            continue
         if len(posts) >= MAX_POSTS:
             break
         posts.append(normalize_tiktok_post(item))

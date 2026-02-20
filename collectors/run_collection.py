@@ -51,7 +51,7 @@ def parse_args(argv=None):
     )
     parser.add_argument(
         "--tiktok-urls", nargs="+", default=[],
-        help="TikTok account URLs to collect from"
+        help="TikTok VIDEO URLs to collect (e.g., 'https://tiktok.com/@user/video/123')"
     )
     return parser.parse_args(argv)
 
