@@ -27,3 +27,5 @@ Research how BrightData's API works for collecting social media data from Facebo
 3. Does BrightData offer any free tier, demo data, or trial access for testing?
 4. What are the minimum steps to collect Facebook posts from a public page URL and TikTok posts from a public account URL via BrightData?
 Search the BrightData documentation and API reference to find accurate answers.
+
+User chose: Use live BrightData API (~$0.08) with hardcoded public dataset IDs, find real Facebook/TikTok page URLs.

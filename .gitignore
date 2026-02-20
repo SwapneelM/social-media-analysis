@@ -1,0 +1,27 @@
+# Environment and secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Raw data (may be large / sensitive)
+data/raw/
+
+# Node / React
+node_modules/
+dashboard/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
