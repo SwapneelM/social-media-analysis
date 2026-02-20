@@ -6,6 +6,7 @@ used by both Meta and TikTok collectors. Implements crash-safe snapshot ID
 persistence and polling with timeout.
 """
 
+import json
 import logging
 import os
 import time
@@ -149,7 +150,17 @@ def download_snapshot(snapshot_id):
         timeout=60,
     )
     check_response_retryable(resp)
-    data = resp.json()
+
+    # BrightData may return NDJSON (one JSON object per line) or a JSON array
+    try:
+        data = resp.json()
+    except (requests.exceptions.JSONDecodeError, ValueError):
+        # Parse as newline-delimited JSON
+        data = []
+        for line in resp.text.strip().split('\n'):
+            line = line.strip()
+            if line:
+                data.append(json.loads(line))
 
     logger.info("Downloaded %d records from snapshot %s", len(data), snapshot_id)
     return data
