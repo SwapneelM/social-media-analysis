@@ -69,8 +69,8 @@ def collect_tiktok(urls):
     """
     logger.info("Collecting TikTok posts from %d URLs...", len(urls))
 
-    # Build inputs for BrightData
-    inputs = [{"url": url, "num_of_posts": MAX_POSTS} for url in urls]
+    # Build inputs for BrightData (TikTok profiles dataset doesn't accept num_of_posts)
+    inputs = [{"url": url} for url in urls]
 
     # Trigger collection
     snapshot_id = trigger_collection(BRIGHTDATA_TIKTOK_DATASET_ID, inputs)

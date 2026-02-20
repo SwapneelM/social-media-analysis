@@ -28,7 +28,7 @@ OPENROUTER_CHAT_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 # --- BrightData Dataset IDs (public, not secrets) ---
 BRIGHTDATA_FACEBOOK_DATASET_ID = "gd_lkaxegm826bjpoo9m5"
-BRIGHTDATA_TIKTOK_DATASET_ID = "gd_lu702nij2f790tmv9h"
+BRIGHTDATA_TIKTOK_DATASET_ID = "gd_l1villgoiiidt09ci"
 
 # --- Constants ---
 MAX_POSTS = 25
