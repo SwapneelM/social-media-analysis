@@ -102,21 +102,28 @@ These are verified public Facebook pages of organizations involved in India's AI
 - [NASSCOM](https://www.facebook.com/nasscomOfficial/) — India's IT industry association
 - [Digital India](https://www.facebook.com/OfficialDigitalIndia/) — Government digital transformation initiative
 
-### TikTok Accounts (for BrightData collection)
+### TikTok Videos (for BrightData collection)
 
-Indian tech creators on TikTok:
+**Important**: BrightData's TikTok Posts dataset requires individual **video URLs** (not profile URLs). Find videos via Google search: `site:tiktok.com "India AI"`.
 
-- [techdroidhindiii](https://www.tiktok.com/@techdroidhindiii) — Indian tech YouTuber/TikToker (414K followers)
-- [techsatire](https://www.tiktok.com/@techsatire) — Tech videos in Tamil (54K followers)
-- [excited_4tech](https://www.tiktok.com/@excited_4tech) — All about tech (50K followers)
+India + AI related TikTok videos:
+
+- [@nala.india — "AI is actually... Indian?!"](https://www.tiktok.com/@nala.india/video/7509540960238341381)
+- [@uptin — "AI Changing Indian Accents"](https://www.tiktok.com/@uptin/video/7482022226741447958)
+- [@lexfridman — Sundar Pichai on India](https://www.tiktok.com/@lexfridman/video/7513527554477772062)
+- [@nate.b.jones — Amazon's AI in India](https://www.tiktok.com/@nate.b.jones/video/7353448604138278174)
+- [@varun_rana_ — "AI = Amazon India"](https://www.tiktok.com/@varun_rana_/video/7353652876734041390)
 
 ### Example Collection Command
 
 ```bash
 python -m collectors.run_collection \
   --twitter-keywords "India AI Impact Summit" "#AIImpactSummit" \
-  --meta-urls "https://www.facebook.com/INDIAai" "https://www.facebook.com/NITIAayog/" \
-  --tiktok-urls "https://www.tiktok.com/@techdroidhindiii"
+  --meta-urls "https://www.facebook.com/INDIAai" \
+  --tiktok-urls \
+    "https://www.tiktok.com/@nala.india/video/7509540960238341381" \
+    "https://www.tiktok.com/@uptin/video/7482022226741447958" \
+    "https://www.tiktok.com/@lexfridman/video/7513527554477772062"
 ```
 
 ## Usage
