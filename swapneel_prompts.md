@@ -35,3 +35,13 @@ Search for real Facebook page and TikTok account URLs related to "India AI Impac
 
 ## Prompt 5 — 2026-02-20
 Run the full pipeline locally: collect data from Twitter, Facebook, and TikTok using the sample URLs, extract claims with GPT-4o, and start the React dashboard to view results.
+
+## Prompt 6 — 2026-02-20
+User called out that tests for Meta and TikTok were mocked and did not verify real API integration. Demanded honest assessment of what's working and what isn't. Asked for:
+1. Fix TikTok collection (profiles dataset returns metadata not posts, need video URLs)
+2. Verify data is relevant to keywords not random
+3. Detailed methodology explanation in explanations_for_slides.md for Gamma.app slides
+4. Clear walkthrough of: Twitter keyword search, Google URL search for Facebook/TikTok, BrightData collection process
+
+## Prompt 7 — 2026-02-20
+Find 5-10 specific TikTok VIDEO URLs (format: tiktok.com/@username/video/NUMBERS) related to India AI, artificial intelligence India, AI Impact Summit India, or Indian tech. These are needed for the BrightData TikTok Posts dataset (gd_lu702nij2f790tmv9h) which requires individual video URLs, not profile URLs.
