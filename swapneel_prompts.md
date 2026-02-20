@@ -32,3 +32,6 @@ User chose: Use live BrightData API (~$0.08) with hardcoded public dataset IDs, 
 
 ## Prompt 4 — 2026-02-20
 Search for real Facebook page and TikTok account URLs related to "India AI Impact Summit" topic. Find functional URLs that can be used with the BrightData API for data collection. Add them to the README as clickable links for documentation.
+
+## Prompt 5 — 2026-02-20
+Run the full pipeline locally: collect data from Twitter, Facebook, and TikTok using the sample URLs, extract claims with GPT-4o, and start the React dashboard to view results.
