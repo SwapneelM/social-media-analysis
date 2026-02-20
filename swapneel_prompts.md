@@ -29,3 +29,6 @@ Research how BrightData's API works for collecting social media data from Facebo
 Search the BrightData documentation and API reference to find accurate answers.
 
 User chose: Use live BrightData API (~$0.08) with hardcoded public dataset IDs, find real Facebook/TikTok page URLs.
+
+## Prompt 4 — 2026-02-20
+Search for real Facebook page and TikTok account URLs related to "India AI Impact Summit" topic. Find functional URLs that can be used with the BrightData API for data collection. Add them to the README as clickable links for documentation.

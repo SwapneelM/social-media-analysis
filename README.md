@@ -81,6 +81,44 @@ BRIGHTDATA_API_KEY=your_brightdata_api_key
 OPENROUTER_API_KEY=your_openrouter_api_key
 ```
 
+## Sample URLs for Data Collection
+
+The demo topic is **India AI Impact Summit 2026**. Below are verified, public URLs you can use with each platform.
+
+### Twitter Keywords
+
+Use these keywords to search for tweets about the summit:
+
+- `"India AI Impact Summit"`
+- `"AI Impact Summit" India`
+- `#AIImpactSummit`
+
+### Facebook Pages (for BrightData collection)
+
+These are verified public Facebook pages of organizations involved in India's AI ecosystem:
+
+- [IndiaAI (Official)](https://www.facebook.com/INDIAai) — Government of India's AI portal
+- [NITI Aayog](https://www.facebook.com/NITIAayog/) — India's policy think tank, key organizer
+- [NASSCOM](https://www.facebook.com/nasscomOfficial/) — India's IT industry association
+- [Digital India](https://www.facebook.com/OfficialDigitalIndia/) — Government digital transformation initiative
+
+### TikTok Accounts (for BrightData collection)
+
+Indian tech creators on TikTok:
+
+- [techdroidhindiii](https://www.tiktok.com/@techdroidhindiii) — Indian tech YouTuber/TikToker (414K followers)
+- [techsatire](https://www.tiktok.com/@techsatire) — Tech videos in Tamil (54K followers)
+- [excited_4tech](https://www.tiktok.com/@excited_4tech) — All about tech (50K followers)
+
+### Example Collection Command
+
+```bash
+python -m collectors.run_collection \
+  --twitter-keywords "India AI Impact Summit" "#AIImpactSummit" \
+  --meta-urls "https://www.facebook.com/INDIAai" "https://www.facebook.com/NITIAayog/" \
+  --tiktok-urls "https://www.tiktok.com/@techdroidhindiii"
+```
+
 ## Usage
 
 ### 1. Collect Data
